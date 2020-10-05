@@ -1,0 +1,30 @@
+name: BootCamp2020_9
+on:
+  push:
+    branches: [ master ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Now Installing NodeV 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.3.0
+      with:
+        # Yarn command
+        cmd: install
+        
+    - name: Building Application For Production
+      run: yarn build
+
+    - name: Initializing Surge and Deploying !
+      run: npm install --global surge
+    - run: echo "==>> ${{ secrets.SUPER_SECRET_SURGE_TOKEN }}"
+    - run: surge ./build BootCamp2020_UmarGit_9.surge.sh --token ${{ secrets.SUPER_SECRET_SURGE_TOKEN }}
+    - run: echo deployed succesfully to BootCamp2020_UmarGit_9.surge.sh

@@ -1,38 +1,388 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: 'GT-Walsheim-Pro-Bold';
+    src: local('GT-Walsheim-Pro-Bold'), url(./assets/fonts/GT-Walsheim-Pro-Bold.woff2) format('woff2');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+    --midnight-blue: #120c4f;
+    --paradise-pink: #ff0061;
+    --honey-yellow: #ffb200;
+    --emerald: #00d384;
+    --peach: #ffebc2;
+    font-family: 'GT-Walsheim-Pro-Bold', serif !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.Home{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(160deg, var(--midnight-blue) 0%, var(--paradise-pink) 100%);
 }
 
-.App-link {
-  color: #61dafb;
+.Home-Absolute-Text{
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Home-Absolute-Text > h1{
+    color: var(--peach);
+    font-size: 12vw;
+    text-align: center;
+    padding: 6vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Home-Absolute-Button{
+    position: absolute;
+    background-color: transparent;
+    height: 10vh;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.Home-Absolute-Button > button{
+    color: var(--peach);
+    font-size: 2em;
+    text-align: center;
+    background-color: var(--honey-yellow);
+    border-radius: 100% 0 0 0;
+    transition: all 0.3s ease-in-out;
+}
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.16);
+    }
+    40% {
+        transform: scale(1.12);
+    }
+    60% {
+        transform: scale(1.14);
+    }
+    80% {
+        transform: scale(1.11);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.Home-Absolute-Button > button:hover{
+    color: var(--peach);
+    background-color: var(--honey-yellow);
+    padding: 20px 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Home-Absolute-Button > button > .MuiButton-label {
+    padding: 20px 0 0px 50px;
+}
+.Home-Absolute-Button > button:hover > .MuiButton-label {
+    animation: bounce 1s ease-in-out;
+}
+
+
+.Reports{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(160deg, var(--midnight-blue) 0%, var(--paradise-pink) 100%);
+}
+
+.Report{
+    height:100vh;
+    width: 100%;
+}
+
+.Report-Display{
+    height: 40vh;
+}
+.Report-Display-Box{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.Report-Display-Heading{
+    font-size: 6vmin;
+    opacity: 0.8;
+    color: var(--peach);
+}
+.Report-Display-Balance{
+    font-size: 14vmin;
+    color: var(--peach);
+    text-shadow: 0 0 4px var(--peach);
+}
+
+.Report-Chart{
+    height: 60vh;
+    background-color: var(--midnight-blue);
+    border-radius: 8vh 8vh 0 0;
+}
+.Report-Chart-Tab-View{
+    width: 80%;
+    margin: 0 auto;
+    padding: 2vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Report-Chart-Tab-View-Inner{
+    width: 40% !important;
+    max-width: 200px !important;
+    height: 8vh !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: var(--peach) !important;
+    text-shadow: 0 0 4px var(--peach) !important;
+}
+.Report-Chart-Tab-View-Current-Tab{
+    background-color: var(--paradise-pink) !important;
+    box-shadow: 0 0 4px var(--paradise-pink) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.IN{
+    border-top: 2px solid rgba(255,255,255,0.2) !important;
+    border-left: 2px solid rgba(255,255,255,0.2) !important;
+    border-bottom: 2px solid rgba(255,255,255,0.2) !important;
+    border-radius: 10px 0 0 10px !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.EX{
+    border: 2px solid rgba(255,255,255,0.2) !important;
+    border-radius: 0 10px 10px 0 !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.Report-Chart-Bar-View{
+    width: 100%;
+    min-height: 30vh;
+    max-height: 44vh;
+}
+
+.Report-Chart-Bar-View canvas{
+    width: 100% !important;
+    min-height: 36vh !important;
+    max-height: 44vh !important;
+}
+
+.Report-Chart-Doughnut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4vh;
+    border-radius: 4vh 4vh 0 0;
+    background-color: var(--peach);
+    box-shadow: 0 0 4px var(--peach);
+    transition: all 0.3s ease-in-out;
+
+}
+.Report-Chart-Doughnut:hover {
+    border-radius: 8vh 8vh 0 0;
+    height: 30vh;
+    transition: all 0.3s ease-in-out;
+}
+.Report-Chart-Doughnut h2{
+    margin: 2vh auto;
+    text-align: center;
+    color: var(--midnight-blue);
+}
+.Report-Chart-Doughnut-Opener hr{
+    width: 10%;
+    margin: 1vh auto 0 auto;
+    background-color: var(--midnight-blue);
+    padding-top: 10px;
+}
+.Report-Chart-Doughnut-Opener hr{
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Report-Chart-Doughnut:hover .Report-Chart-Doughnut-Opener hr{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.Report-Chart-Doughnut-Viewer{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.Report-Chart-Doughnut-Viewer-Container{
+    width: 15vh;
+    height: 15vh;
+}
+.Report-Chart-Doughnut-Viewer-Text{
+    width: 60vw;
+    max-width: 300px;
+    text-align: center ;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center ;
+    color: var(--midnight-blue);
+}
+.Report-Chart-Doughnut-Viewer-Text i{
+    opacity: 0.6;
+    font-size: 0.8rem;
+}
+.Report-Chart-Doughnut-Viewer-Text b{
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.navigation{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation-main{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigate-back{
+    margin-left: 4vw !important;
+    color: var(--paradise-pink) !important;
+    font-size: 1rem !important;
+}
+
+.navigate-add{
+    margin-right: 4vw !important;
+    background-color: var(--paradise-pink) !important;
+}
+
+.NewData{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(160deg, var(--midnight-blue) 0%, var(--paradise-pink) 100%);
+}
+.NewData-Nav{
+    height: 16vh;
+}
+.NewData-Add-Tab{
+    height: 32vh;
+    min-height: 280px;
+}
+.NewData-Add-Tab-Center{
+    width: 80%;
+    height: -webkit-fill-available;
+    margin: 0 auto 10px auto;
+    background-color: var(--peach) !important;
+    border-radius: 4vw !important;
+}
+.NewData-Add-Tab-Center-Details{
+    width: 90% !important;
+    margin: 0 auto;
+    display: flex;
+    height: -webkit-fill-available;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 0;
+}
+.NewData-Add-Tab-Center-Details h1{
+    color: var(--paradise-pink);
+    margin: 0;
+    font-size: 3vh;
+}
+.NewData-Add-Tab-Center-Details-TF{
+    color: var(--paradise-pink);
+    margin: 0.8vh auto !important;
+}
+.NewData-View-Tab{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4vh;
+    background-color: var(--midnight-blue);
+    box-shadow: 0 0 4px var(--midnight-blue);
+    border-radius: 6vh 6vh 0 0;
+    transition: all 0.3s ease-in-out;
+}
+.NewData-View-Tab-Opener hr{
+    width: 10%;
+    margin: 1vh auto 0 auto;
+    background-color: var(--peach);
+    padding-top: 10px;
+}
+.NewData-View-Tab-Opener hr{
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.NewData-View-Tab:hover{
+    height: 44vh;
+    transition: all 0.3s ease-in-out;
+}
+.NewData-View-Tab-Main-Head{
+    font-size: 2.2rem;
+    width: 80%;
+    margin: 4vh auto 1vh auto;
+    color: var(--peach);
+}
+.NewData-View-Tab-Main{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;   
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    height: 30vh;
+}
+::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    background: transparent;
+}
+.NewData-View-Tab-Main-List{
+    width: 100%;
+    margin: 20px auto;
+}
+.NewData-View-Tab-Main-List-Item-Center{
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;   
+    flex-direction: column;
+}
+.NewData-View-Tab-Main-List-Item-Center-Chip-IN{
+    margin-top: 4px;
+    background-color: var(--emerald) !important;
+}
+.NewData-View-Tab-Main-List-Item-Center-Chip-EX{
+    margin-top: 4px;
+    background-color: var(--paradise-pink) !important;
+}
+
+
+@media (max-width: 600px){
+    .NewData-Add-Tab-Center-Details h1{
+        font-size: 7vw;
+    }
+}
+@media (orientation:landscape) and (max-height: 400px) {
+    .Report-Display{
+        height: auto;
+    }
 }
