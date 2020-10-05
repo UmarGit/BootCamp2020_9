@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # EXPENSE TRACKER TYPESCRIPT PWA
 
-## Including typescript, pwa support and push notifications.
+### Including typescript, pwa support and push notifications.
 
 ## Available Scripts
 
