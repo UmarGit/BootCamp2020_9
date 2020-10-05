@@ -1,7 +1,7 @@
 name: BootCamp2020_9
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     
 jobs:
   build:
